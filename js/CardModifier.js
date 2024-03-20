@@ -36,7 +36,6 @@ import CardUI from "./card"
 
     /** Called when the object has been clicked */
     async onClick() {
-        console.log('clicked the object')
 
        this.container = document.createElement('div')
        this.container.id = 'quizCardDiv'
