@@ -1358,7 +1358,7 @@ const topics = {
         "Ernest Hemingway",
         "James Joyce",
         "Louisa May Alcott",
-        "To Kill a Mockingbird"
+        "To Kill a Mockingbird",
         "1984",
         "Pride and Prejudice",
         "The Great Gatsby",
