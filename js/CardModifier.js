@@ -14,7 +14,7 @@ import CardUI from "./card"
     get settings () {
         let settings = [
             { type: 'description', name: `Select the topic for the quiz cards.` },
-            { type: 'select', id: 'quizcard_topic_select', name: 'Topic', labels: ['All', 'Information Technology', 'Movies', 'Music', 'Sports', 'Geography'], values: ['all','it', 'movies', 'music', 'sports','geography'], default: 'all', help: 'Select the topic for the card.' },
+            { type: 'select', id: 'quizcard_topic_select', name: 'Topic', labels: ['All', 'Information Technology', 'Movies', 'Music', 'Sports', 'Geography', 'Television', 'History', 'Gaming', 'Literature'], values: ['all','it', 'movies', 'music', 'sports','geography', 'television', 'history', 'gaming', 'literature'], default: 'all', help: 'Select the topic for the card.' },
             { type: 'number', id: 'quizcard_time', name: 'Timer (s)', placeholder: 30, help: 'Time alowed to do the card.' },
             { type: 'number', id: 'quizcard_points', name: 'Points per answer', placeholder: 10, help: 'Points awarded for each correct item.' },
         ]

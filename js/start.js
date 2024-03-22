@@ -1,7 +1,6 @@
 //
 // My MetaPress Plugin
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid'
 
 import metadata from '../package.json'
 import CardModifier from './CardModifier';
@@ -14,7 +13,7 @@ export default class QuizCardsPlugin extends React.PureComponent {
     description     = metadata.metapress?.description || metadata.description
     version         = metadata.version
     provides        = [ 'quizcards', 'modifier:quizcards' ]
-    requires        = [ 'menubar', 'entities', 'dialogs' ]
+    requires        = [ 'entities' ]
 
     /** Create modifier */
     createModifier() {
