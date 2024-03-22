@@ -1,7 +1,7 @@
 {
-    "name": "metapress-plugin-quizcards",
+    "name": "metapress-plugin-quickcardz",
     "version": "1.0.0",
-    "description": "MetaPress Quiz Cards plugin.",
+    "description": "MetaPress QuickCardz plugin.",
     "main": "js/loader.js",
     "private": true,
     "scripts": {
@@ -15,8 +15,8 @@
     "author": "",
     "license": "ISC",
     "metapress": {
-        "id": "com.quizcardsplugin",
-        "name": "MetaPress Quiz Cards plugin"
+        "id": "com.quickcardzplugin",
+        "name": "MetaPress QuickCardz plugin"
     },
     "devDependencies": {
         "@babel/core": "^7.22.9",
