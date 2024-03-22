@@ -38,6 +38,13 @@
     getTopic(topic) {
 
         let keywords = []
+
+        if (topic == "random") {
+            let topicsArray = ['it', 'movies', 'music', 'sports','geography', 'television', 'history', 'gaming', 'literature']
+            topic = topicsArray[Math.floor(Math.random() * topicsArray.length)]
+            this.topic = topic
+        }
+
         if (topic != 'all') {
             let selectedTopic = topics[topic]
 
