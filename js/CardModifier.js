@@ -9,7 +9,7 @@ import CardUI from "./card"
  export default class QuizCardsModifier {
 
     /** Modifier info */
-    name = 'Quiz Cards'
+    name = 'QuickCardz'
 
     get settings () {
         let settings = [
@@ -37,18 +37,24 @@ import CardUI from "./card"
     /** Called when the object has been clicked */
     async onClick() {
 
+       if (this.roundInProgress) {
+            return
+       }
+       this.roundInProgress = true
+       let time = parseInt(this.entity.quizcard_time) * 1000
        this.container = document.createElement('div')
        this.container.id = 'quizCardDiv'
        this.container.style.position = 'absolute'
        this.container.style.right = '40px'
        this.container.style.bottom = '50px'
        this.container.style.width =  '420px'
-
-
+   
        metapress.contentDiv.appendChild(this.container)
 
        ReactDOM.render(<CardUI topic={this.entity.quizcard_topic_select} time={this.entity.quizcard_time} points={this.entity.quizcard_points} />, this.container)
-
+       setTimeout(e => {
+            this.roundInProgress = false
+       }, time)
         //metapress.contentDiv.appendChild(this.container)
        // ReactDOM.render(card,this.container)
     }
