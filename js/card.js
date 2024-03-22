@@ -141,7 +141,7 @@
                     </div>
                     <div style={{padding: '10px 0px', backgroundColor: `${colors[this.state.scheme].main}`, width:'300px'}}>
                         <div style={{alignItems: 'center', justifyContent: 'center', display: 'flex', fontSize: '26px', fontWeight: '900', textTransform: 'uppercase', color: `${colors[this.state.scheme].heading}` }}>{this.topic}</div>
-                        <ul>
+                        <ul style={{ padding: '0px 5px'}}>
                         
                         {this.state.stage == 'start' ?
                             this.state.keywords.map((topic) =>
