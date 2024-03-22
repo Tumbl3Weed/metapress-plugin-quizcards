@@ -41,12 +41,9 @@ import CardUI from "./card"
        this.container = document.createElement('div')
        this.container.id = 'quizCardDiv'
        this.container.style.position = 'absolute'
-       this.container.style.left = '50%'
-       this.container.style.top = '50%'
-       this.container.style.width =  '380px'
-       this.container.style.height =  '200px'
-       this.container.style.marginLeft = '-190px'
-       this.container.style.marginTop = '-100px'
+       this.container.style.right = '40px'
+       this.container.style.bottom = '50px'
+       this.container.style.width =  '420px'
 
 
        metapress.contentDiv.appendChild(this.container)
