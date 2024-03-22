@@ -14,8 +14,11 @@
     /** Initial state */
     state = {
         stage: 'start',
-        keywords: []
+        keywords: [],
+        scheme: 0
     }
+
+
 
     /** Called when the card window is shown */
     componentDidMount() {
@@ -24,6 +27,11 @@
         this.time = this.props.time ? this.props.time * 1000 : 30000
 
         this.getTopic(this.topic)
+        this.getScheme()
+    }
+
+    getScheme() {
+            this.setState({scheme: Math.floor(Math.random() * 6)})
     }
 
     /** Get the random keywords for the topic */
@@ -85,20 +93,66 @@
 
     /** Render UI */
     render() {
+      
+        const colors = [
+            {
+             main: '#e86a77',
+             title: '#e5aab2',
+             heading: '#9d3a3b',
+             titlebg: '#c6484a'
+            },
+            {
+             main: '#61ddbc',
+             title: '#a3fce4',
+             heading: '#1b7b65',
+             titlebg: '#35ba9b'
+            },
+            {
+                main: '#fbd277',
+                title: '#f0daaa',
+                heading: '#ac7f29',
+                titlebg: '#f5b945'
+               },
+               {
+                main: '#b4df80',
+                title: '#d1f4a6',
+                heading: '#5e8a33',
+                titlebg: '#89c053'
+               },
+               {
+                main: '#b3a4ee',
+                title: '#d5ccf8',
+                heading: '#664ea1',
+                titlebg: '#9579da'
+               },
+               {
+                main: '#a9b0bb',
+                title: '#bcc7d8',
+                heading: '#333942',
+                titlebg: '#424852'
+               },
+        ]
+
         //return <></>
-        return <div style={{boxShadow: '10px 10px 20px black', height: '100%'}} className="App">
-                <div style={{backgroundColor: 'white', borderRadius: 5, height: '100%'}} id="quiz-card">
-                    <div style={{padding: '24px 0px'}}>
+        return <div style={{boxShadow: '10px 10px 20px black', height: '100%', borderRadius: '20px'}} className="App">
+                <div style={{ display:'flex', flexDirection: 'row', borderRadius: '20px', height: '100%'}} id="quiz-card">
+                    <div style={{display: 'flex', width: '60px', backgroundColor: `${colors[this.state.scheme].titlebg}`, alignItems: 'center', justifyContent: 'center', borderTopLeftRadius: '20px', borderBottomLeftRadius: '20px'}}>
+                        <div style={{ transform: 'rotate(-90deg)', fontSize: '32px', color: `${colors[this.state.scheme].title}` }}>QuickCardz</div>
+                    </div>
+                    <div style={{padding: '10px 0px', backgroundColor: `${colors[this.state.scheme].main}`, width:'300px'}}>
+                        <div style={{alignItems: 'center', justifyContent: 'center', display: 'flex', fontSize: '26px', fontWeight: '900', textTransform: 'uppercase', color: `${colors[this.state.scheme].heading}` }}>{this.topic}</div>
+                        <ul>
+                        
                         {this.state.stage == 'start' ?
                             this.state.keywords.map((topic) =>
-                                <div style={{color: 'black', margin: '5px 50px'}}>{topic}</div>
+                                <li style={{color: 'white', margin: '5px 50px'}}>{topic}</li>
                             ) :
                         this.state.stage == 'finish' ?
-                            <div style={{padding: 30}}>
-                                <label style={{color:'black', textAlign: 'center', display: 'block', padding: '10px 0px'}} for="quizcards-select">How many did you successfully explain?</label>
+                            <div style={{padding: '0 30', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                                <label style={{color:'white', textAlign: 'center', display: 'block', padding: '10px 0px'}} for="quizcards-select">How many did you successfully explain?</label>
 
-                                <select style={{color:'white', backgroundColor: 'rgba(0,0,0,0.8)', display: 'flex', width: '100%', textAlign: 'center'}} name="Amount" id="quizcards-select">
-                                    <option value="0">--Please choose the amount--</option>
+                                <select style={{color:'white', backgroundColor: `${colors[this.state.scheme].titlebg}`, display: 'flex', width: '80%', textAlign: 'center', margin: '10px', padding: '15px', borderRadius: '10px' }} name="Amount" id="quizcards-select">
+                                    
                                     <option value="0">0</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -108,9 +162,14 @@
                                 </select>
 
                                 <div id="finish-btn">
-                                    <button style={{display: 'grid', width: '80%', position: 'absolute', margin: 10, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', color: 'white'}}onClick={() => this.finishSelection()}>Finish</button>
+                                    <button style={{margin: 10, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', color: 'white', background: 'transparent', cursor: 'pointer', fontSize: '24px', textTransform: 'uppercase', border: 'none', textDecoration: 'underline'}}onClick={() => this.finishSelection()}>Finish</button>
                                 </div>
                             </div> : null}
+                        </ul>
+
+                    </div>
+                    <div style={{display: 'flex', width: '60px', backgroundColor: `${colors[this.state.scheme].titlebg}`, alignItems: 'center', justifyContent: 'center', borderTopRightRadius: '20px', borderBottomRightRadius: '20px'}}>
+                        <div style={{ transform: 'rotate(90deg)', fontSize: '32px', color: `${colors[this.state.scheme].title}` }}>QuickCardz</div>
                     </div>
                 </div>
             </div>
