@@ -92,7 +92,7 @@
         scoreData.source = 'quizcards' + uuidv4()
         scoreData.points = points
 
-        metapress.plugins.sendEvent('gamification.score', scoreData)
+        metapress.plugins.sendEvent('gamification_onObjectAction', scoreData)
 
         let div = document.getElementById('quizCardDiv')
         metapress.contentDiv.removeChild(div) 
