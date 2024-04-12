@@ -1,6 +1,6 @@
 {
     "name": "metapress-plugin-quickcardz",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "description": "MetaPress QuickCardz plugin.",
     "main": "js/loader.js",
     "private": true,
